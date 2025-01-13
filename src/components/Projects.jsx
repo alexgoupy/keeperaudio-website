@@ -3,17 +3,17 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-// HorizontalScrollCarousel component
-const HorizontalScrollCarousel = () => {
+// Projects component
+const Projects = () => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["40%", "-38%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-[#0E1011]">
+    <section id="Projects" ref={targetRef} className="relative h-[300vh] bg-[#0E1011]">
       <div className="sticky top-0 flex h-screen items-center overflow-x-hidden no-scrollbar">
         <motion.div
           style={{ x }}
@@ -55,4 +55,4 @@ const cards = [
   { color: "#FF33FF", title: "Title 5", id: 5 },
 ];
 
-export default HorizontalScrollCarousel;
+export default Projects;

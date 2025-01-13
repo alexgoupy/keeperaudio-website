@@ -1,10 +1,10 @@
 // pages.tsx or Home.tsx
 import { Hero } from "@/components/Hero";
-import { Discover } from "@/components/Discover";
-import { Stats } from "@/components/Stats";
 import { Navbar } from "@/components/Navbar";
 import { PlayButton } from "@/components/PlayButton"; // Import PlayButton
-import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel"; // Import HorizontalScrollCarousel
+import Projects from "@/components/Projects"; // Import Projects
+import Stats from "@/components/Stats";
+
 
 const Home: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Home: React.FC = () => {
       <div className="">
         <Navbar />
         <Hero />
-        <HorizontalScrollCarousel />
+        <Projects />
         <Stats />
         <PlayButton />
       </div>
