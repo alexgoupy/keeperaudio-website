@@ -21,10 +21,10 @@ export const PlayButton: React.FC = () => {
             animationPlayState: pingActive ? "running" : "paused", // Pause or resume animation
           }}
         >
-          <span className="text-sm text-white mx-2">•</span>
-          <span className="text-sm text-white mx-2">Now Playing</span>
-          <span className="text-sm text-white mx-2">•</span>
-          <span className="text-sm text-white mx-2">
+          <span className={`text-sm mx-2 ${pingActive ? "text-white" : "text-white/50"} transition-colors duration-150`}>•</span>
+          <span className={`text-sm mx-2 ${pingActive ? "text-white" : "text-white/50"} transition-colors duration-150`}>Now Playing</span>
+          <span className={`text-sm mx-2 ${pingActive ? "text-white" : "text-white/50"} transition-colors duration-150`}>•</span>
+          <span className={`text-sm mx-2 ${pingActive ? "text-white" : "text-white/50"} transition-colors duration-150`}>
             Alex Keeper, maybeAlice - One of You Illusions
           </span>
         </div>
@@ -36,10 +36,10 @@ export const PlayButton: React.FC = () => {
             animationPlayState: pingActive ? "running" : "paused", // Pause or resume animation
           }}
         >
-          <span className="text-sm text-white mx-2">•</span>
-          <span className="text-sm text-white mx-2">Now Playing</span>
-          <span className="text-sm text-white mx-2">•</span>
-          <span className="text-sm text-white mx-2">
+          <span className={`text-sm mx-2 ${pingActive ? "text-white" : "text-white/50"} transition-colors duration-150`}>•</span>
+          <span className={`text-sm mx-2 ${pingActive ? "text-white" : "text-white/50"} transition-colors duration-150`}>Now Playing</span>
+          <span className={`text-sm mx-2 ${pingActive ? "text-white" : "text-white/50"} transition-colors duration-150`}>•</span>
+          <span className={`text-sm mx-2 ${pingActive ? "text-white" : "text-white/50"} transition-colors duration-150`}>
             Alex Keeper, maybeAlice - One of You Illusions
           </span>
         </div>

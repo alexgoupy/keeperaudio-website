@@ -1,19 +1,20 @@
-// In your Home.tsx or page.tsx
+// pages.tsx or Home.tsx
 import { Hero } from "@/components/Hero";
 import { Discover } from "@/components/Discover";
 import { Stats } from "@/components/Stats";
 import { Navbar } from "@/components/Navbar";
 import { PlayButton } from "@/components/PlayButton"; // Import PlayButton
+import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel"; // Import HorizontalScrollCarousel
 
 const Home: React.FC = () => {
   return (
     <>
-      <div className="overflow-x-hidden">
+      <div className="">
         <Navbar />
         <Hero />
-        <PlayButton /> {/* Add PlayButton component here */}
-        <Discover />
+        <HorizontalScrollCarousel />
         <Stats />
+        <PlayButton />
       </div>
     </>
   );
