@@ -69,9 +69,10 @@ const CountUp: React.FC<CountUpProps> = ({ targetNumber, description }) => {
 
 const StartPage = () => {
   return (
-    <div className="min-h-screen bg-[#0E1011] text-white flex flex-col items-center justify-center px-10">
+    <div className="min-h-screen bg-transparent text-white flex flex-col items-center justify-center px-10 relative">
+
       {/* Container for positioning the numbers */}
-      <div className="w-full relative">
+      <div className="w-full relative z-10">
         {/* Number 70+ on the left */}
         <div className="absolute left-0 text-left">
           <CountUp targetNumber={70} description="Editorial Playlists" />
