@@ -49,9 +49,9 @@ const Card = ({ card, setHoveredImage }) => {
       >
       </div>
 
-      <div className="absolute top-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20 mix-blend-difference">
+      {/* <div className="absolute top-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20 mix-blend-difference">
         <p className="text-3xl font-semibold text-white">{card.title}</p>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -59,12 +59,12 @@ const Card = ({ card, setHoveredImage }) => {
 
 // Cards array with images
 const cards = [
-  { image: "/images/ak-pp.jpg", title: "Alex Keeper", id: 1 },
-  { image: "/images/tk-pp.jpg", title: "Tom Kha", id: 2 },
-  { image: "/images/nidyu-pp.jpg", title: "nidyu.", id: 3 },
-  { image: "/images/hidn-pp.jpg", title: "H:dn", id: 4 },
-  { image: "/images/solei-pp.png", title: "Solei", id: 5 },
-  { image: "/images/memoryleak-pp.jpg", title: "memory leak", id: 6 },
+  { image: "/images/ak-pp.webp", title: "Alex Keeper", id: 1 },
+  { image: "/images/tk-pp.webp", title: "Tom Kha", id: 2 },
+  { image: "/images/nidyu-pp.webp", title: "nidyu.", id: 3 },
+  { image: "/images/hidn-pp.webp", title: "H:dn", id: 4 },
+  { image: "/images/solei-pp.webp", title: "Solei", id: 5 },
+  { image: "/images/memoryleak-pp.webp", title: "memory leak", id: 6 },
 ];
 
 export default Projects;

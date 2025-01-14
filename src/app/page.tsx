@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { PlayButton } from "@/components/PlayButton"; // Import PlayButton
 import Projects from "@/components/Projects"; // Import Projects
 import Stats from "@/components/Stats";
+import { ReactLenis, useLenis } from 'lenis/react'
 
 const Home: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
 
       {/* Main Content */}
       <div className="bg-[#0E1011]">
+        <ReactLenis root options={{ lerp: 0.08,}}></ReactLenis>
         <Navbar />
         <Hero />
         <Projects />

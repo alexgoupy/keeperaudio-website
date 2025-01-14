@@ -7,13 +7,11 @@ export const Navbar: React.FC = () => {
         {/* First link, left aligned */}
         <a href="#Projects" className="hover:underline">Discover</a>
 
-        {/* Second link, centered */}
-        <div className="absolute left-1/2 transform -translate-x-1/2">
+        {/* <div className="absolute left-1/2 transform -translate-x-1/2">
           <a href="#create" className="hover:underline">Create</a>
         </div>
 
-        {/* Last link, right aligned */}
-        <a href="#learn" className="hover:underline">Learn</a>
+        <a href="#learn" className="hover:underline">Learn</a> */}
       </div>
     </nav>
   );
