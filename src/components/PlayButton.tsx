@@ -1,6 +1,7 @@
 "use client"; // Mark this file as a client-side component
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export const PlayButton: React.FC = () => {
   const [pingActive, setPingActive] = useState(true); // Ping starts as active (visible)
