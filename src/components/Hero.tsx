@@ -59,13 +59,17 @@ export const Hero: React.FC = () => {
         transition={{
           type: "spring",
           stiffness: 200,
-          damping: 150,
-          // Smooth transition for rotation
-          duration: 2, // Transition over half a second
-          ease: "easeOut", // Ease out for smoothness
+          damping: 100,
+          duration: 2,
+          ease: "easeOut",
         }}
         style={{
-          cursor: "pointer", // Add hover pointer for interactivity
+          textShadow: `
+            ${transform.rotateY*-0.8}px ${transform.rotateX*0.4}px 1px rgba(255, 255, 255, 0.8),
+            ${transform.rotateY*-0.4}px ${transform.rotateX*0.2}px 1px rgba(255, 255, 255, 0.9),
+            ${transform.rotateY*-0.2}px ${transform.rotateX*0.1}px 1px rgba(255, 255, 255, 1)
+          `,
+          transition: "text-shadow 0.3s ease-out",
         }}
       >
         keeper.audio

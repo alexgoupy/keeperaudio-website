@@ -16,7 +16,7 @@ const Home: React.FC = () => {
         <ReactLenis root options={{ lerp: 0.08,}}></ReactLenis>
         <Navbar />
         <Hero />
-        <Projects />
+        {/* <Projects /> */}
         <Stats />
         <PlayButton />
       </div>
