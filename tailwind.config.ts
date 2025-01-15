@@ -6,6 +6,7 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
+        "spin-slow": 'spin 5s linear infinite',
         marquee: 'marquee 15s linear infinite',
         marquee2: 'marquee2 15s linear infinite',
       },

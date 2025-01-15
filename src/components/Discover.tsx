@@ -1,9 +1,17 @@
-import React from "react";
+"use client";
 
-export const Discover: React.FC = () => {
+const Discover = ({ isVisible }: { isVisible: boolean }) => {
   return (
-    <section id="discover" className="min-h-screen flex items-center justify-center bg-transparent text-white w-screen overflow-x-hidden">
-      <h2 className="text-4xl font-semibold">Discover Amazing Features</h2>
-    </section>
+    <div
+      className={`discover fixed top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <h2 className="text-center text-white text-6xl font-bold opacity-80">
+        Discover Our Projects
+      </h2>
+    </div>
   );
 };
+
+export default Discover;

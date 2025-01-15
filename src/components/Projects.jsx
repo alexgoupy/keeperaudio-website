@@ -37,17 +37,31 @@ const Projects = () => {
 const Card = ({ card, setHoveredImage }) => {
   return (
     <div className="relative bg-transparent w-[350px] h-[450px] flex justify-center items-center group"> {/* Make it a group */}
-      <div
-        key={card.id}
-        className="transition-transform duration-300 ease-in-out transform relative h-[450px] w-[350px] overflow-hidden rounded-lg" // Image container with fixed size
-        style={{
-          backgroundColor: "#1F2122",
-          backgroundImage: `url(${card.image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="flex justify-center items-center h-screen bg-transparent">
+        <div className="
+        relative
+        h-[452px] w-[352px] rounded-[10px]
+        shadow-[16px_16px_20px_#0000008c]
+        overflow-hidden
+        before:absolute
+        before:top-[-50%] before:right-[-50%] before:bottom-[-50%] before:left-[-50%]
+        before:bg-[conic-gradient(transparent,transparent,#3e344e)]
+        before:animate-spin-slow
+        ">
+          <div
+            key={card.id}
+            className="transition-transform duration-300 ease-in-out transform relative h-[450px] w-[350px] overflow-hidden rounded-lg" // Image container with fixed size
+            style={{
+              backgroundColor: "#1F2122",
+              backgroundImage: `url(${card.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+          </div>
+        </div>
       </div>
+
 
       {/* <div className="absolute top-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20 mix-blend-difference">
         <p className="text-3xl font-semibold text-white">{card.title}</p>
