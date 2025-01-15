@@ -3,6 +3,26 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+// Function to split text into an array of letters
+const splitText = (text: string) => {
+  return text.split("").map((char, index) => (
+    <motion.span
+      key={index}
+      className="inline-block"
+      initial={{ opacity: 1, y: 30 }}  // Letters start from below and are invisible
+      animate={{ opacity: 1, y: 0 }}   // Letters fade in and move upwards
+      transition={{
+        delay: index * 0.03, // Stagger effect
+        type: "spring",
+        stiffness: 150,
+        damping: 10,
+      }}
+    >
+      {char}
+    </motion.span>
+  ));
+};
+
 export const Hero: React.FC = () => {
   const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0 });
 
@@ -65,19 +85,34 @@ export const Hero: React.FC = () => {
         }}
         style={{
           textShadow: `
-            ${transform.rotateY*-0.8}px ${transform.rotateX*0.4}px 1px rgba(255, 255, 255, 0.8),
-            ${transform.rotateY*-0.4}px ${transform.rotateX*0.2}px 1px rgba(255, 255, 255, 0.9),
-            ${transform.rotateY*-0.2}px ${transform.rotateX*0.1}px 1px rgba(255, 255, 255, 1)
+            ${transform.rotateY * -0.8}px ${transform.rotateX * 0.4}px 1px rgba(255, 255, 255, 0.8),
+            ${transform.rotateY * -0.6}px ${transform.rotateX * 0.3}px 1px rgba(255, 255, 255, 0.8),
+            ${transform.rotateY * -0.4}px ${transform.rotateX * 0.2}px 1px rgba(255, 255, 255, 0.9),
+            ${transform.rotateY * -0.2}px ${transform.rotateX * 0.1}px 1px rgba(255, 255, 255, 1),
+            ${transform.rotateY * -0.2}px ${transform.rotateX * 0.1}px 4px rgba(0, 0, 0, 0.8),
+            ${transform.rotateY * 0.2}px ${transform.rotateX * -0.1}px 6px rgba(0, 0, 0, 0.8)
           `,
           transition: "text-shadow 0.3s ease-out",
         }}
       >
-        keeper.audio
+        {splitText("keeper.audio")}
       </motion.h1>
 
-      <p className="absolute bottom-[25%] right-[15%] text-sm text-right w-full px-10 min-w-[100px] max-w-[460px] text-white">
+
+    <motion.p
+      className="absolute bottom-[25%] right-[15%] text-sm text-right w-full min-w-[100px] max-w-[460px] text-white"
+      initial={{ opacity: 0 }} // Start above the screen
+      animate={{ opacity: 1 }}    // Animate into the visible area
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        damping: 25,
+        duration: 0.5,
+        delay: 0.5,
+      }}
+    >
         keeper.audio is a creative studio focused on music production and project management.
-      </p>
+    </motion.p>
     </div>
   );
 };
