@@ -21,11 +21,11 @@ export const Navbar: React.FC = () => {
         {/* First link, left aligned */}
         <a href="#Projects" className="">Discover</a>
 
-        {/* <div className="absolute left-1/2 transform -translate-x-1/2">
+        <div className="absolute left-1/2 transform -translate-x-1/2">
           <a href="#create" className="hover:underline">Create</a>
         </div>
 
-        <a href="#learn" className="hover:underline">Learn</a> */}
+        <a href="#learn" className="hover:underline">Learn</a>
       </div>
     </motion.nav>
   );

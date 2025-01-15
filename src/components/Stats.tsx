@@ -71,7 +71,7 @@ const CountUp: React.FC<CountUpProps> = ({ targetNumber, description }) => {
         stiffness: 100,
         damping: 25,
         duration: 0.5,
-        delay: 0.6,
+        delay: 0.4,
       }}
     >
       <h2 className={`text-7xl font-black ${targetNumber === 150000000 ? 'pl-6' : ''}`}>
