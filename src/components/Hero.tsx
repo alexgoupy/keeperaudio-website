@@ -51,23 +51,6 @@ export const Hero: React.FC = () => {
         perspective: 1000, // Add perspective for realistic 3D effect
       }}
     >
-      <motion.div
-        className="absolute bg-[#292334] rounded-full blur-3xl opacity-0"
-        style={{
-          width: "600px",
-          height: "400px",
-        }}
-        animate={{
-          x: [0, 50, 0], // Move right and return
-          y: [0, -50, 0], // Move up and return
-        }}
-        transition={{
-          duration: 10, // Slow movement
-          repeat: Infinity, // Loop indefinitely
-          ease: "easeInOut", // Smooth transitions
-        }}
-      ></motion.div>
-
       <motion.h1
         className="text-[clamp(3rem,0.33009708737864063rem+11.3915857605178vw,14rem)] m-0 font-black italic leading-[0.8] tracking-[-0.08em] z-10 text-white pr-6"
         onMouseMove={handleMouseMove}

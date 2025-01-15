@@ -7,9 +7,11 @@ import { PlayButton } from "@/components/PlayButton";
 import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
 import { ReactLenis } from 'lenis/react';
+import { div } from "framer-motion/client";
 
 const Home: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isBlobVisible, setBlobVisible] = useState(false);
 
   // Function to update mouse position
   useEffect(() => {
@@ -27,9 +29,19 @@ const Home: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    // Delay the blob appearance after 0.5s
+    const timer = setTimeout(() => {
+      setBlobVisible(true);
+    }, 500); // 0.5 seconds delay
+
+    // Clean up the timeout
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     const blob = document.getElementById("blur-blob");
 
-    if (blob) {
+    if (blob && isBlobVisible) {
       // Animate the blob to follow mouse position
       blob.animate(
         [
@@ -41,10 +53,11 @@ const Home: React.FC = () => {
         }
       );
     }
-  }, [mousePosition]);
+  }, [mousePosition, isBlobVisible]);
 
   return (
     <>
+      {/* The blob with transition for opacity */}
       <div
         id="blur-blob"
         style={{
@@ -56,8 +69,10 @@ const Home: React.FC = () => {
           filter: 'blur(150px)',
           pointerEvents: 'none', // Prevent interaction with the blur
           zIndex: 0, // Place above the background but below content
-        }}
-      ></div>
+          opacity: isBlobVisible ? 1 : 0, // Initially set opacity to 0, will change after the delay
+          transition: 'opacity 1s ease-out', // Smooth transition for opacity change
+        }}>
+      </div>
 
       <div className="bg-[#0E1011]">
         <ReactLenis root options={{ lerp: 0.08 }} />
