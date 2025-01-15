@@ -1,19 +1,66 @@
-// pages.tsx or Home.tsx
+'use client'; // To fix the useEffect error in Next.js
+
+import { useEffect, useState } from "react";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
-import { PlayButton } from "@/components/PlayButton"; // Import PlayButton
-import Projects from "@/components/Projects"; // Import Projects
+import { PlayButton } from "@/components/PlayButton";
+import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
-import { ReactLenis, useLenis } from 'lenis/react'
+import { ReactLenis } from 'lenis/react';
 
 const Home: React.FC = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Function to update mouse position
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setMousePosition({ x: event.clientX, y: event.clientY });
+    };
+
+    // Add mouse move listener
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Clean up listener on component unmount
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  useEffect(() => {
+    const blob = document.getElementById("blur-blob");
+
+    if (blob) {
+      // Animate the blob to follow mouse position
+      blob.animate(
+        [
+          { transform: `translate(${mousePosition.x - 250}px, ${mousePosition.y - 250}px)` },
+        ],
+        {
+          duration: 3000, // Duration of the animation
+          fill: 'forwards', // Ensure the final position persists
+        }
+      );
+    }
+  }, [mousePosition]);
+
   return (
     <>
-      {/* <div className="absolute top-[-50px] right-[-25%] mx-auto h-[350px] w-[50vw] rounded-full bg-[#292334] blur-[175px] z-0"></div> */}
+      <div
+        id="blur-blob"
+        style={{
+          position: 'fixed',
+          width: '500px',  // Set the size of the blur
+          height: '500px',
+          backgroundColor: '#292334', // Dark purple color
+          borderRadius: '50%',
+          filter: 'blur(150px)',
+          pointerEvents: 'none', // Prevent interaction with the blur
+          zIndex: 0, // Place above the background but below content
+        }}
+      ></div>
 
-      {/* Main Content */}
       <div className="bg-[#0E1011]">
-        <ReactLenis root options={{ lerp: 0.08,}}></ReactLenis>
+        <ReactLenis root options={{ lerp: 0.08 }} />
         <Navbar />
         <Hero />
         <Projects />
