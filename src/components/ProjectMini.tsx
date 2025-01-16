@@ -10,18 +10,15 @@ interface CardProps {
     id: number;
     spotifyLink: string;
   };
-  setHoveredImage: (image: string | null) => void;
 }
 
-const Card: React.FC<CardProps> = ({ card, setHoveredImage }) => {
+const Card: React.FC<CardProps> = ({ card }) => {
   return (
     <a
       href={card.spotifyLink}
       target="_blank"
       rel="noopener noreferrer"
       className="relative bg-transparent w-[200px] sm:w-[300px] lg:w-[300px] h-[200px] sm:h-[400px] lg:h-[400px] flex flex-col justify-center items-center group hover:scale-105 sm:hover:translate-y-[-30px] transition-transform duration-300 ease-in-out z-10"
-      onMouseEnter={() => setHoveredImage(card.image)}
-      onMouseLeave={() => setHoveredImage(null)}
     >
       <div className="flex justify-center items-center h-[200px] sm:h-[400px] bg-transparent">
         <div className="relative h-[202px] sm:h-[402px] w-[202px] sm:w-[302px] rounded-[10px] overflow-hidden before:absolute before:top-[-50%] before:right-[-50%] before:bottom-[-50%] before:left-[-50%] before:bg-[conic-gradient(transparent,transparent,#3e344e)] before:animate-spin-slow shadow-[4px_8px_12px_rgba(0,0,0,0.2)] hover:shadow-[16px_32px_30px_rgba(0,0,0,0.4)]">
@@ -45,7 +42,6 @@ const Card: React.FC<CardProps> = ({ card, setHoveredImage }) => {
 const StartPage = () => {
   const paragraphRef = useRef<HTMLParagraphElement | null>(null);
   const [inView, setInView] = useState(false);
-  const [hoveredImage, setHoveredImage] = useState<string | null>(null); // Define setHoveredImage here
   const [cardsInView, setCardsInView] = useState<boolean[]>(new Array(3).fill(false));
 
   useEffect(() => {
@@ -141,7 +137,7 @@ const StartPage = () => {
         The studio has produced and managed several music projects, each with its own artistic direction, purpose, and achievements.
       </motion.p>
 
-      {/* Cards */} 
+      {/* Cards */}
       <div className="flex flex-wrap gap-6 mt-16 justify-center z-10 sm:flex-row flex-col">
         {cards.map((card, index) => (
           <motion.div
@@ -157,7 +153,7 @@ const StartPage = () => {
               delay: 0.2,
             }}
           >
-            <Card key={card.id} card={card} setHoveredImage={setHoveredImage} /> {/* Pass the setHoveredImage function */}
+            <Card key={card.id} card={card} /> {/* Removed setHoveredImage */}
           </motion.div>
         ))}
       </div>
