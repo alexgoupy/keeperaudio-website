@@ -8,6 +8,7 @@ import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
 import { ReactLenis } from 'lenis/react';
 import { div } from "framer-motion/client";
+import ProjectsMini from "@/components/ProjectMini";
 
 const Home: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -60,10 +61,9 @@ const Home: React.FC = () => {
       {/* The blob with transition for opacity */}
       <div
         id="blur-blob"
+        className="hidden lg:block w-0 h-0 lg:w-[500px] lg:h-[500px]"
         style={{
           position: 'fixed',
-          width: '500px',  // Set the size of the blur
-          height: '500px',
           backgroundColor: '#292334', // Dark purple color
           borderRadius: '50%',
           filter: 'blur(150px)',
@@ -76,9 +76,9 @@ const Home: React.FC = () => {
 
       <div className="bg-[#0E1011]">
         <ReactLenis root options={{ lerp: 0.08 }} />
-        <Navbar />
+        {/* <Navbar /> */}
         <Hero />
-        <Projects />
+        <ProjectsMini />
         <Stats />
         <PlayButton />
       </div>

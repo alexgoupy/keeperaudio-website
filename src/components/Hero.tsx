@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
       }}
     >
       <motion.h1
-        className="text-[clamp(3rem,0.33009708737864063rem+11.3915857605178vw,14rem)] m-0 font-black italic leading-[0.8] tracking-[-0.08em] z-10 text-white pr-6"
+        className="text-[3rem] sm:text-[6rem] md:text-[6rem] lg:text-[10rem] m-0 font-black italic leading-[0.8] tracking-[-0.08em] z-10 text-white"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         animate={{
@@ -81,21 +81,20 @@ export const Hero: React.FC = () => {
         {splitText("keeper.audio")}
       </motion.h1>
 
-
-    <motion.p
-      className="absolute bottom-[25%] right-[15%] text-sm text-right w-full min-w-[100px] max-w-[460px] text-white"
-      initial={{ opacity: 0 }} // Start above the screen
-      animate={{ opacity: 1 }}    // Animate into the visible area
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 25,
-        duration: 0.5,
-        delay: 0.5,
-      }}
-    >
+      <motion.p
+        className="absolute sm:bottom-[25%] bottom-[35%] right-[10%] text-[0.7rem] md:text-sm  text-right w-full min-w-[100px] max-w-[300px] sm:max-w-[460px] text-white"
+        initial={{ opacity: 0 }} // Start above the screen
+        animate={{ opacity: 1 }}    // Animate into the visible area
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 25,
+          duration: 0.5,
+          delay: 0.5,
+        }}
+      >
         keeper.audio is a creative studio focused on music production and project management.
-    </motion.p>
+      </motion.p>
     </div>
   );
 };

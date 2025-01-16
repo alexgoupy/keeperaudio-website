@@ -71,14 +71,14 @@ const CountUp: React.FC<CountUpProps> = ({ targetNumber, description }) => {
         stiffness: 100,
         damping: 25,
         duration: 0.5,
-        delay: 0.4,
+        delay: 0.2,
       }}
     >
-      <h2 className={`text-7xl font-black ${targetNumber === 150000000 ? 'pl-6' : ''}`}>
+      {/* Apply smaller text size for mobile and larger for desktops */}
+      <h2 className={`font-black text-4xl sm:text-6xl lg:text-7xl text-center`}>
         {count.toLocaleString()}
-        {/* {targetNumber === 70 || targetNumber === 150000000 || targetNumber === 10 ? "+" : ""} */}
       </h2>
-      <p className="text-sm mt-2">{description}</p> {/* Description under the number */}
+      <p className="text-sm mt-2 text-center">{description}</p> {/* Description under the number */}
     </motion.div>
   );
 };
@@ -114,33 +114,28 @@ const StartPage = () => {
 
   return (
     <div className="min-h-screen bg-transparent text-white flex flex-col items-center justify-center relative">
-      {/* <div className="absolute align-center z-0">
-        <TiltEffect />
-      </div> */}
-
       {/* Container for positioning the numbers */}
-      <div className="w-full relative z-10">
-
+      <div className="w-full relative z-10 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-8 sm:gap-12">
         {/* Number 10+ aligned with the paragraph on the right */}
-        <div className="absolute left-[15%] text-left">
+        <div className="sm:w-1/3 px-4 sm:px-0 text-center">
           <CountUp targetNumber={10} description="Labels" />
         </div>
 
         {/* Number 150M at the center */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
+        <div className="sm:w-1/3 sm:text-center px-4 sm:px-0 text-center">
           <CountUp targetNumber={150000000} description="Streams" />
         </div>
 
         {/* Number 70+ aligned with the paragraph on the left */}
-        <div className="absolute right-[15%] text-right">
+        <div className="sm:w-1/3 sm:text-right px-4 sm:px-0 text-center">
           <CountUp targetNumber={70} description="Editorial Playlists" />
         </div>
-
       </div>
 
+      {/* This paragraph is hidden on small screens */}
       <motion.p
         ref={paragraphRef}
-        className="absolute top-[25%] left-[15%] text-sm text-left w-full min-w-[100px] max-w-[460px] text-white"
+        className="absolute bottom-[25%] right-[10%] text-sm sm:text-base w-full sm:min-w-[100px] sm:max-w-[460px] sm:text-right text-white z-20 text-center hidden sm:block"
         initial={{ opacity: 0 }} // Start with 0 opacity
         animate={{ opacity: inView ? 1 : 0 }} // Animate to opacity 1 when in view
         transition={{
@@ -148,7 +143,7 @@ const StartPage = () => {
           stiffness: 100,
           damping: 25,
           duration: 0.5,
-          delay: 0.2,
+          delay: 0.4,
         }}
       >
         By closely working with record labels, each project has seen significant growth.
