@@ -135,7 +135,7 @@ const StartPage = () => {
       {/* This paragraph is hidden on small screens */}
       <motion.p
         ref={paragraphRef}
-        className="absolute bottom-[25%] right-[10%] text-sm sm:text-base w-full sm:min-w-[100px] sm:max-w-[460px] sm:text-right text-white z-20 text-center hidden sm:block"
+        className="absolute bottom-[25%] right-[10%] text-sm sm:text-sm w-full sm:min-w-[100px] sm:max-w-[460px] text-right text-white z-20 text-center hidden sm:block"
         initial={{ opacity: 0 }} // Start with 0 opacity
         animate={{ opacity: inView ? 1 : 0 }} // Animate to opacity 1 when in view
         transition={{

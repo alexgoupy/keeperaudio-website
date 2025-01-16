@@ -3,22 +3,31 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-// Card Component
-const Card = ({ card, setHoveredImage }) => {
+interface CardProps {
+  card: {
+    image: string;
+    title: string;
+    id: number;
+    spotifyLink: string;
+  };
+  setHoveredImage: (image: string | null) => void;
+}
+
+const Card: React.FC<CardProps> = ({ card, setHoveredImage }) => {
   return (
     <a
-      href={card.spotifyLink} // The Spotify link
-      target="_blank" // Open in new tab
-      rel="noopener noreferrer" // Secure link
-      className="relative bg-transparent w-[200px] sm:w-[300px] lg:w-[300px] h-[200px] sm:h-[400px] lg:h-[400px] flex flex-col justify-center items-center group hover:scale-105 sm:hover:translate-y-[-30px] transition-transform duration-300 ease-in-out z-10" // Hide translate-y effect on small screens
-      onMouseEnter={() => setHoveredImage(card.image)} // Set hovered image on mouse enter
-      onMouseLeave={() => setHoveredImage(null)} // Reset the hovered image on mouse leave
+      href={card.spotifyLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative bg-transparent w-[200px] sm:w-[300px] lg:w-[300px] h-[200px] sm:h-[400px] lg:h-[400px] flex flex-col justify-center items-center group hover:scale-105 sm:hover:translate-y-[-30px] transition-transform duration-300 ease-in-out z-10"
+      onMouseEnter={() => setHoveredImage(card.image)}
+      onMouseLeave={() => setHoveredImage(null)}
     >
       <div className="flex justify-center items-center h-[200px] sm:h-[400px] bg-transparent">
         <div className="relative h-[202px] sm:h-[402px] w-[202px] sm:w-[302px] rounded-[10px] overflow-hidden before:absolute before:top-[-50%] before:right-[-50%] before:bottom-[-50%] before:left-[-50%] before:bg-[conic-gradient(transparent,transparent,#3e344e)] before:animate-spin-slow shadow-[4px_8px_12px_rgba(0,0,0,0.2)] hover:shadow-[16px_32px_30px_rgba(0,0,0,0.4)]">
           <div
             key={card.id}
-            className="transition-transform duration-300 ease-in-out transform relative h-[200px] sm:h-[400px] w-[200px] sm:w-[300px] overflow-hidden rounded-lg" // Apply shadow on hover
+            className="transition-transform duration-300 ease-in-out transform relative h-[200px] sm:h-[400px] w-[200px] sm:w-[300px] overflow-hidden rounded-lg"
             style={{
               backgroundColor: "#1F2122",
               backgroundImage: `url(${card.image})`,
@@ -36,7 +45,7 @@ const Card = ({ card, setHoveredImage }) => {
 const StartPage = () => {
   const paragraphRef = useRef<HTMLParagraphElement | null>(null);
   const [inView, setInView] = useState(false);
-  const [hoveredImage, setHoveredImage] = useState<string | null>(null);
+  const [hoveredImage, setHoveredImage] = useState<string | null>(null); // Define setHoveredImage here
   const [cardsInView, setCardsInView] = useState<boolean[]>(new Array(3).fill(false));
 
   useEffect(() => {
@@ -148,7 +157,7 @@ const StartPage = () => {
               delay: 0.2,
             }}
           >
-            <Card key={card.id} card={card} setHoveredImage={setHoveredImage} />
+            <Card key={card.id} card={card} setHoveredImage={setHoveredImage} /> {/* Pass the setHoveredImage function */}
           </motion.div>
         ))}
       </div>

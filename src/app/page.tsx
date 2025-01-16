@@ -2,12 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { Hero } from "@/components/Hero";
-import { Navbar } from "@/components/Navbar";
 import { PlayButton } from "@/components/PlayButton";
-import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
 import { ReactLenis } from 'lenis/react';
-import { div } from "framer-motion/client";
 import ProjectsMini from "@/components/ProjectMini";
 
 const Home: React.FC = () => {
@@ -76,7 +73,6 @@ const Home: React.FC = () => {
 
       <div className="bg-[#0E1011]">
         <ReactLenis root options={{ lerp: 0.08 }} />
-        {/* <Navbar /> */}
         <Hero />
         <ProjectsMini />
         <Stats />
